@@ -228,7 +228,7 @@
   <div class="page-header">
     <p class="page-eyebrow">Personal</p>
     <h1>Outside of Work</h1>
-    <p>Outside of school, I have practiced karate since the age of three and now give back to the sport as a teaching assistant and substitute instructor at my local dojo. I also love hiking. On a personal note, I am Japanese-Canadian, speak Japanese at home, and plan to return to Japan after graduation.</p>
+    <p>Outside of school, I have practiced karate since the age of three and now give back to the sport as a teaching assistant and substitute instructor at my local dojo. I also love hiking. Music has been a big part of my life too — I have been playing guitar since I was six and have a deep love for rock. On a personal note, I am Japanese-Canadian, speak Japanese at home, and plan to return to Japan after graduation.</p>
   </div>
 
   <div class="feed">
@@ -262,11 +262,43 @@
 
     <!-- Karate post -->
     <div class="post">
-      <img src="karate.jpg" class="post-img" alt="Karate black belt" />
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="karate-track">
+          <img src="karate.jpg" alt="Karate black belt" />
+          <img src="karate2.jpg" alt="Karate at the dojo" />
+        </div>
+        <button class="carousel-btn left" onclick="slide('karate', -1)">‹</button>
+        <button class="carousel-btn right" onclick="slide('karate', 1)">›</button>
+        <div class="carousel-dots" id="karate-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
       <div class="post-body">
         <p class="post-category">Karate</p>
         <p class="post-title">Shodan — 1st Dan Black Belt</p>
         <p class="post-desc">Training in Goju-ryu karate since childhood. Earned my Shodan black belt at KW Meibukan in Waterloo. I coach children's classes and substitute-instruct adult sessions of 30+ students at the dojo.</p>
+      </div>
+    </div>
+
+    <!-- Guitar post -->
+    <div class="post">
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="guitar-track">
+          <img src="guitar1.jpg" alt="Playing guitar young" />
+          <img src="guitar2.jpg" alt="Guitar" />
+        </div>
+        <button class="carousel-btn left" onclick="slide('guitar', -1)">‹</button>
+        <button class="carousel-btn right" onclick="slide('guitar', 1)">›</button>
+        <div class="carousel-dots" id="guitar-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-category">Music</p>
+        <p class="post-title">Guitar</p>
+        <p class="post-desc">I have been playing guitar since I was six. Rock music has always been a big part of my life and the guitar is how I unwind.</p>
       </div>
     </div>
 
@@ -277,8 +309,8 @@
   </footer>
 
   <script>
-    const state = { hike: 0 };
-    const totals = { hike: 5 };
+    const state = { hike: 0, karate: 0, guitar: 0 };
+    const totals = { hike: 5, karate: 2, guitar: 2 };
 
     function slide(id, dir) {
       state[id] = (state[id] + dir + totals[id]) % totals[id];
