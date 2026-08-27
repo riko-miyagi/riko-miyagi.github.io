@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riko Miyagi — Outside of Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #21262d;
+      --accent: #3fb950;
+      --text: #e6edf3;
+      --muted: #8b949e;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: rgba(13, 17, 23, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+    .nav-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.9rem;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .page-header {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 4rem 2rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .page-header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+    }
+    .page-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .feed {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .post {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .post-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .post-username {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .post-location {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* Carousel */
+    .carousel-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #000;
+    }
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+    .carousel-track img {
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .carousel-btn:hover { background: rgba(0,0,0,0.8); }
+    .carousel-btn.left { left: 10px; }
+    .carousel-btn.right { right: 10px; }
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.4;
+      transition: opacity 0.2s;
+    }
+    .dot.active { opacity: 1; }
+
+    /* Single image */
+    .post-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .post-body {
+      padding: 1rem 1.2rem 1.2rem;
+    }
+    .post-category {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+    .post-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .post-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-name">rikomiyagi819</a>
+    <a href="index.html" class="nav-back">← Back to Portfolio</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">Personal</p>
+    <h1>Outside of Work</h1>
+    <p>A few things I do when I'm not doing GIS.</p>
+  </div>
+
+  <div class="feed">
+
+    <!-- Hiking post -->
+    <div class="post">
+      <div class="post-header">
+        <img src="headshot.jpg" class="post-avatar" alt="Riko" />
+        <div>
+          <div class="post-username">rikomiyagi819</div>
+          <div class="post-location">Dolomites, Italy</div>
+        </div>
+      </div>
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="hike-track">
+          <img src="hike1.jpg" alt="Dolomites 1" />
+          <img src="hike2.jpg" alt="Dolomites 2" />
+          <img src="hike3.jpg" alt="Dolomites 3" />
+          <img src="hike4.jpg" alt="Dolomites 4" />
+          <img src="hike5.jpg" alt="Dolomites 5" />
+        </div>
+        <button class="carousel-btn left" onclick="slide('hike', -1)">‹</button>
+        <button class="carousel-btn right" onclick="slide('hike', 1)">›</button>
+        <div class="carousel-dots" id="hike-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-category">Hiking</p>
+        <p class="post-title">The Dolomites, Italy</p>
+        <p class="post-desc">Hiking through the Dolomites in northern Italy. Trails up to 2,999m with views across the Cadini di Misurina range and Tre Cime di Lavaredo — some of the most dramatic mountain terrain in Europe.</p>
+      </div>
+    </div>
+
+    <!-- Karate post -->
+    <div class="post">
+      <div class="post-header">
+        <img src="headshot.jpg" class="post-avatar" alt="Riko" />
+        <div>
+          <div class="post-username">rikomiyagi819</div>
+          <div class="post-location">KW Meibukan Karate Dojo, Waterloo ON</div>
+        </div>
+      </div>
+      <img src="karate.jpg" class="post-img" alt="Karate black belt" />
+      <div class="post-body">
+        <p class="post-category">Karate</p>
+        <p class="post-title">Shodan — 1st Dan Black Belt</p>
+        <p class="post-desc">Training in Goju-ryu karate since childhood. Earned my Shodan black belt at KW Meibukan in Waterloo. I coach children's classes and substitute-instruct adult sessions of 30+ students at the dojo.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    rikomiyagi819.github.io/Personal-Project-Repository &nbsp;·&nbsp; built with HTML
+  </footer>
+
+  <script>
+    const state = { hike: 0 };
+    const totals = { hike: 5 };
+
+    function slide(id, dir) {
+      state[id] = (state[id] + dir + totals[id]) % totals[id];
+      document.getElementById(`${id}-track`).style.transform = `translateX(-${state[id] * 100}%)`;
+      document.querySelectorAll(`#${id}-dots .dot`).forEach((d, i) => {
+        d.classList.toggle('active', i === state[id]);
+      });
+    }
+  </script>
+
+</body>
+</html>
