@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Riko Miyagi — Geospatial Portfolio</title>
+
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
@@ -25,6 +26,7 @@
       --tag-text: #58a6ff;
     }
 
+    /* LIGHT MODE */
     body.light-mode {
       --bg: #ffffff;
       --surface: #f6f8fa;
@@ -69,10 +71,17 @@
       letter-spacing: 0.04em;
     }
 
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
     .nav-links {
       display: flex;
       gap: 1.5rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -306,7 +315,7 @@
       color: var(--accent);
     }
 
-    /* ABOUT */
+    /* ABOUT / CERTIFICATIONS */
     .about-section {
       max-width: 860px;
       margin: 0 auto;
@@ -374,8 +383,8 @@
         gap: 1rem;
       }
 
-      nav > div {
-        gap: 0.8rem !important;
+      .nav-brand {
+        gap: 0.6rem;
       }
 
       .theme-toggle {
@@ -390,14 +399,10 @@
 
   <!-- NAV -->
   <nav>
-    <span class="nav-name">Riko Miyagi</span>
 
-    <div style="display:flex; align-items:center; gap:1.5rem;">
-      <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="mailto:rmiyagi@uwaterloo.ca">Contact</a></li>
-      </ul>
+    <!-- NAME + THEME TOGGLE -->
+    <div class="nav-brand">
+      <span class="nav-name">Riko Miyagi</span>
 
       <button
         id="theme-toggle"
@@ -406,13 +411,23 @@
         aria-label="Toggle light and dark mode"
       >☀</button>
     </div>
+
+    <!-- NAVIGATION -->
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="mailto:rmiyagi@uwaterloo.ca">Contact</a></li>
+    </ul>
+
   </nav>
 
   <!-- HERO -->
   <section class="hero">
+
     <p class="hero-eyebrow">Geospatial Data Science</p>
 
     <div style="display:flex; align-items:center; gap:2rem; flex-wrap:wrap; margin-bottom:1.2rem;">
+
       <h1 style="margin-bottom:0;">
         Maps, analysis,<br>and <span>spatial thinking</span>
       </h1>
@@ -422,6 +437,7 @@
         alt="Riko Miyagi"
         style="width:110px; height:110px; border-radius:50%; object-fit:cover; object-position:center 15%; border:2px solid var(--accent); flex-shrink:0;"
       />
+
     </div>
 
     <p class="hero-desc">
@@ -429,7 +445,11 @@
     </p>
 
     <div style="display:flex; flex-wrap:wrap; gap:1.5rem; font-family:'DM Mono',monospace; font-size:0.8rem; color:var(--muted);">
-      <a href="mailto:rmiyagi@uwaterloo.ca" style="color:var(--accent); text-decoration:none;">
+
+      <a
+        href="mailto:rmiyagi@uwaterloo.ca"
+        style="color:var(--accent); text-decoration:none;"
+      >
         rmiyagi@uwaterloo.ca
       </a>
 
@@ -450,12 +470,16 @@
       >
         resume.pdf
       </a>
+
     </div>
+
   </section>
 
   <!-- GIS SKILLS -->
   <div class="skills-bar">
+
     <span class="skills-label">GIS</span>
+
     <span class="skill-chip">ArcGIS Pro</span>
     <span class="skill-chip">QGIS</span>
     <span class="skill-chip">Catalyst</span>
@@ -464,11 +488,14 @@
     <span class="skill-chip">Auto Level</span>
     <span class="skill-chip">Network Analyst</span>
     <span class="skill-chip">Weighted Overlay</span>
+
   </div>
 
   <!-- PROGRAMMING SKILLS -->
   <div class="skills-bar">
+
     <span class="skills-label">Programming</span>
+
     <span class="skill-chip">Python</span>
     <span class="skill-chip">R</span>
     <span class="skill-chip">SQL</span>
@@ -478,6 +505,7 @@
     <span class="skill-chip">DrRacket</span>
     <span class="skill-chip">JupyterHub</span>
     <span class="skill-chip">GeoPandas</span>
+
   </div>
 
   <!-- PROJECTS -->
@@ -495,8 +523,12 @@
       style="text-decoration:none;color:inherit;"
     >
       <div class="project-card">
+
         <div>
-          <p class="project-category">Energy Analysis · Feb 2026</p>
+
+          <p class="project-category">
+            Energy Analysis · Feb 2026
+          </p>
 
           <h2 class="project-title">
             Heat Pump vs. Gas Furnace Feasibility Study
@@ -512,9 +544,11 @@
             <span class="tag">Ontario Rebates</span>
             <span class="tag">Data Visualization</span>
           </div>
+
         </div>
 
         <span class="project-arrow">↗</span>
+
       </div>
     </a>
 
@@ -525,8 +559,12 @@
       style="text-decoration:none;color:inherit;"
     >
       <div class="project-card">
+
         <div>
-          <p class="project-category">Energy Data Analysis · Apr 2026</p>
+
+          <p class="project-category">
+            Energy Data Analysis · Apr 2026
+          </p>
 
           <h2 class="project-title">
             Ontario Electricity Demand Analysis
@@ -542,9 +580,11 @@
             <span class="tag">Energy Systems</span>
             <span class="tag">Smart Meter</span>
           </div>
+
         </div>
 
         <span class="project-arrow">↗</span>
+
       </div>
     </a>
 
@@ -555,8 +595,12 @@
       style="text-decoration:none;color:inherit;"
     >
       <div class="project-card">
+
         <div>
-          <p class="project-category">Disaster Risk GIS · Mar 2026</p>
+
+          <p class="project-category">
+            Disaster Risk GIS · Mar 2026
+          </p>
 
           <h2 class="project-title">
             Japan Tsunami Evacuation Shelter Coverage Analysis
@@ -572,9 +616,11 @@
             <span class="tag">Disaster Risk</span>
             <span class="tag">Japan</span>
           </div>
+
         </div>
 
         <span class="project-arrow">↗</span>
+
       </div>
     </a>
 
@@ -585,8 +631,12 @@
       style="text-decoration:none;color:inherit;"
     >
       <div class="project-card">
+
         <div>
-          <p class="project-category">Suitability Analysis · Apr 2026</p>
+
+          <p class="project-category">
+            Suitability Analysis · Apr 2026
+          </p>
 
           <h2 class="project-title">
             Wind Farm Suitability Analysis — Huron County, Ontario
@@ -602,9 +652,11 @@
             <span class="tag">Raster Analysis</span>
             <span class="tag">Energy</span>
           </div>
+
         </div>
 
         <span class="project-arrow">↗</span>
+
       </div>
     </a>
 
@@ -615,8 +667,12 @@
       style="text-decoration:none;color:inherit;"
     >
       <div class="project-card">
+
         <div>
-          <p class="project-category">Data Analytics · July 2025</p>
+
+          <p class="project-category">
+            Data Analytics · July 2025
+          </p>
 
           <h2 class="project-title">
             Google Data Analytics Capstone — Cyclistic Bike-Share
@@ -632,9 +688,11 @@
             <span class="tag">Data Visualization</span>
             <span class="tag">Marketing Analytics</span>
           </div>
+
         </div>
 
         <span class="project-arrow">↗</span>
+
       </div>
     </a>
 
@@ -645,8 +703,12 @@
       style="text-decoration:none;color:inherit;"
     >
       <div class="project-card">
+
         <div>
-          <p class="project-category">Political GIS · Nov 2024</p>
+
+          <p class="project-category">
+            Political GIS · Nov 2024
+          </p>
 
           <h2 class="project-title">
             Ontario Liberal Party Support Mapping — 2021 Federal Election
@@ -662,9 +724,11 @@
             <span class="tag">Electoral Data</span>
             <span class="tag">Political Geography</span>
           </div>
+
         </div>
 
         <span class="project-arrow">↗</span>
+
       </div>
     </a>
 
@@ -692,6 +756,7 @@
           onmouseover="this.style.borderColor='var(--accent)'"
           onmouseout="this.style.borderColor='var(--border)'"
         >
+
           <p class="about-card-label">
             Aug 2025 · Coursera ↗
           </p>
@@ -709,6 +774,7 @@
           >
             Completed 8 courses in data cleaning, analysis, and visualization learning Spreadsheets, SQL, R, and Tableau.
           </p>
+
         </div>
       </a>
 
@@ -724,6 +790,7 @@
           onmouseover="this.style.borderColor='var(--accent)'"
           onmouseout="this.style.borderColor='var(--border)'"
         >
+
           <p class="about-card-label">
             Aug 2025 · Coursera ↗
           </p>
@@ -741,11 +808,13 @@
           >
             Core Python programming: variables, data structures, dictionaries, tuples, file handling, and program logic.
           </p>
+
         </div>
       </a>
 
       <!-- CERTIFICATION 3 -->
       <div class="about-card">
+
         <p class="about-card-label">
           Sep 2025 · LinkedIn
         </p>
@@ -763,6 +832,7 @@
         >
           Skills: Artificial Intelligence, Chatbot Testing, workflow automation with n8n.
         </p>
+
       </div>
 
     </div>
@@ -773,7 +843,7 @@
     riko-miyagi.github.io &nbsp;·&nbsp; built with HTML
   </footer>
 
-  <!-- LIGHT / DARK MODE -->
+  <!-- LIGHT / DARK MODE SCRIPT -->
   <script>
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
