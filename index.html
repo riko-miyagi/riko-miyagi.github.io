@@ -530,13 +530,19 @@
   <script>
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
-      const button = document.getElementById('theme-toggle');
-      if (document.body.classList.contains('light-mode')) {
-        button.textContent = '☾';
-      } else {
-        button.textContent = '☀';
-      }
+      const isLight = document.body.classList.contains('light-mode');
+      document.getElementById('theme-toggle').textContent = isLight ? '☾' : '☀';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
     }
+
+    // Apply saved theme on load
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        document.body.classList.add('light-mode');
+        document.getElementById('theme-toggle').textContent = '☾';
+      }
+    })();
   </script>
 
 </body>
