@@ -61,14 +61,20 @@
       letter-spacing: 0.04em;
       text-decoration: none;
     }
-    .nav-back {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
       color: var(--muted);
       text-decoration: none;
+      font-size: 0.85rem;
       transition: color 0.15s;
     }
-    .nav-back:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
     .theme-toggle {
       width: 34px;
       height: 34px;
@@ -127,31 +133,6 @@
       transition: background-color 0.2s, border-color 0.2s;
     }
 
-    .post-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.9rem 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .post-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-    }
-    .post-username {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-    .post-location {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-
     .carousel-wrap {
       position: relative;
       width: 100%;
@@ -207,14 +188,6 @@
     }
     .dot.active { opacity: 1; }
 
-    .post-img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
     .post-body {
       padding: 1rem 1.2rem 1.2rem;
     }
@@ -246,6 +219,11 @@
       color: var(--muted);
       margin-top: 2rem;
     }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -255,10 +233,11 @@
       <a href="index.html" class="nav-name">Riko Miyagi</a>
       <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">☀</button>
     </div>
-    <ul style="display:flex; gap:1.5rem; list-style:none; align-items:center;">
-      <li><a href="index.html" style="color:var(--muted); text-decoration:none; font-size:0.85rem; transition:color 0.15s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Home</a></li>
-      <li><a href="life.html" style="color:var(--muted); text-decoration:none; font-size:0.85rem; transition:color 0.15s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Outside of Work</a></li>
-      <li><a href="experience.html" style="color:var(--muted); text-decoration:none; font-size:0.85rem; transition:color 0.15s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Experience</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="life.html" class="active">Outside of Work</a></li>
+      <li><a href="experience.html">Experience</a></li>
     </ul>
   </nav>
 
@@ -280,8 +259,8 @@
           <img src="hike4.jpg" alt="Dolomites 4" />
           <img src="hike5.jpg" alt="Dolomites 5" />
         </div>
-        <button class="carousel-btn left" onclick="slide('hike', -1)">‹</button>
-        <button class="carousel-btn right" onclick="slide('hike', 1)">›</button>
+        <button class="carousel-btn left" onclick="slide('hike', -1)">&#8249;</button>
+        <button class="carousel-btn right" onclick="slide('hike', 1)">&#8250;</button>
         <div class="carousel-dots" id="hike-dots">
           <span class="dot active"></span>
           <span class="dot"></span>
@@ -304,8 +283,8 @@
           <img src="karate.jpg" alt="Karate black belt" />
           <img src="Karate2.jpg" alt="Karate at the dojo" />
         </div>
-        <button class="carousel-btn left" onclick="slide('karate', -1)">‹</button>
-        <button class="carousel-btn right" onclick="slide('karate', 1)">›</button>
+        <button class="carousel-btn left" onclick="slide('karate', -1)">&#8249;</button>
+        <button class="carousel-btn right" onclick="slide('karate', 1)">&#8250;</button>
         <div class="carousel-dots" id="karate-dots">
           <span class="dot active"></span>
           <span class="dot"></span>
@@ -325,8 +304,8 @@
           <img src="guitar1.jpg" alt="Playing guitar young" />
           <img src="Guitar2.jpg" alt="Guitar" />
         </div>
-        <button class="carousel-btn left" onclick="slide('guitar', -1)">‹</button>
-        <button class="carousel-btn right" onclick="slide('guitar', 1)">›</button>
+        <button class="carousel-btn left" onclick="slide('guitar', -1)">&#8249;</button>
+        <button class="carousel-btn right" onclick="slide('guitar', 1)">&#8250;</button>
         <div class="carousel-dots" id="guitar-dots">
           <span class="dot active"></span>
           <span class="dot"></span>
