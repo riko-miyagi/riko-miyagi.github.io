@@ -317,19 +317,17 @@
     <div class="post">
       <div class="carousel-wrap">
         <div class="carousel-track" id="guitar-track">
-          <img src="guitar1.jpg" alt="Playing guitar young" />
-          <img src="Guitar2.jpg" alt="Guitar" />
           <div class="video-slide">
             <video id="guitar-video" preload="metadata" controls playsinline>
               <source src="guitar-video.mp4" type="video/mp4" />
             </video>
           </div>
+          <img src="guitar1.jpg" alt="Playing guitar young" />
         </div>
         <button class="carousel-btn left" onclick="slide('guitar', -1)">&#8249;</button>
         <button class="carousel-btn right" onclick="slide('guitar', 1)">&#8250;</button>
         <div class="carousel-dots" id="guitar-dots">
           <span class="dot active"></span>
-          <span class="dot"></span>
           <span class="dot"></span>
         </div>
       </div>
@@ -348,7 +346,7 @@
 
   <script>
     const state = { hike: 0, karate: 0, guitar: 0 };
-    const totals = { hike: 5, karate: 2, guitar: 3 };
+    const totals = { hike: 5, karate: 2, guitar: 2 };
 
     function slide(id, dir) {
       // Pause video if leaving video slide
