@@ -318,8 +318,8 @@
       <div class="carousel-wrap">
         <div class="carousel-track" id="guitar-track">
           <div class="video-slide">
-            <video id="Guitar-vid" preload="metadata" controls playsinline>
-              <source src="Guitar-vid.mp4" type="video/mp4" />
+            <video id="guitar-video" preload="metadata" controls playsinline>
+              <source src="Guitar-vid.MP4" type="video/mp4" />
             </video>
           </div>
           <img src="Guitar2.jpg" alt="Playing guitar young" />
@@ -351,7 +351,7 @@
     function slide(id, dir) {
       // Pause video if leaving video slide
       if (id === 'guitar') {
-        const vid = document.getElementById('Guitar-vid');
+        const vid = document.getElementById('guitar-video');
         if (vid) vid.pause();
       }
       state[id] = (state[id] + dir + totals[id]) % totals[id];
