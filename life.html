@@ -1,391 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riko Miyagi — Outside of Work</title>
-  <meta name="description" content="Outside of work, Riko Miyagi practices karate, hikes, and plays guitar — a look at life beyond the classroom." />
-  <meta property="og:title" content="Riko Miyagi — Outside of Work" />
-  <meta property="og:description" content="Karate, hiking, and guitar — a look at life outside the classroom." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://riko-miyagi.github.io/life.html" />
-  <meta property="og:image" content="https://riko-miyagi.github.io/headshots.jpg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Riko Miyagi: Outside of Work</title>
+<meta name="description" content="Outside of work, Riko Miyagi practices karate, hikes, and plays guitar, a look at life beyond the classroom." />
 
-    :root {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --border: #21262d;
-      --accent: #3fb950;
-      --text: #e6edf3;
-      --muted: #8b949e;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    body.light-mode {
-      --bg: #ffffff;
-      --surface: #f6f8fa;
-      --border: #d0d7de;
-      --accent: #1a7f37;
-      --text: #24292f;
-      --muted: #57606a;
-    }
+<style>
+  :root {
+    --paper: #E9ECE2;
+    --paper-raised: #E0E4D5;
+    --ink: #202B23;
+    --ink-muted: #4C5546;
+    --line: #BFC6B2;
+    --signal: #2B5F6E;
+    --flag: #B5491F;
+  }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      min-height: 100vh;
-      transition: background-color 0.2s, color 0.2s;
-    }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    nav {
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      background: var(--bg);
-      backdrop-filter: blur(8px);
-      z-index: 10;
-      transition: background-color 0.2s, border-color 0.2s;
-    }
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .nav-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.9rem;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-      align-items: center;
-    }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: color 0.15s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a.active { color: var(--accent); }
-    .theme-toggle {
-      width: 34px;
-      height: 34px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      background: var(--surface);
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.15s;
-    }
-    .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+  html { -webkit-font-smoothing: antialiased; }
 
-    .page-header {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 4rem 2rem 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-    }
-    .page-header h1 {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.6rem;
-    }
-    .page-header p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 16px;
+  }
 
-    .feed {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+  a { color: inherit; }
 
-    .post {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: background-color 0.2s, border-color 0.2s;
-    }
+  :focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+  }
 
-    .carousel-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1/1;
-      overflow: hidden;
-      background: #000;
-    }
-    .carousel-track {
-      display: flex;
-      height: 100%;
-      transition: transform 0.35s ease;
-    }
-    .carousel-track img {
-      min-width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .carousel-track .video-slide {
-      min-width: 100%;
-      height: 100%;
-      position: relative;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .carousel-track .video-slide video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 34px;
-      height: 34px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s;
-      z-index: 2;
-    }
-    .carousel-btn:hover { background: rgba(0,0,0,0.8); }
-    .carousel-btn.left { left: 10px; }
-    .carousel-btn.right { right: 10px; }
-    .carousel-dots {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 5px;
-      z-index: 2;
-    }
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #fff;
-      opacity: 0.4;
-      transition: opacity 0.2s;
-    }
-    .dot.active { opacity: 1; }
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+  }
 
-    .post-body {
-      padding: 1rem 1.2rem 1.2rem;
-    }
-    .post-category {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.3rem;
-    }
-    .post-title {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    .post-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+  /* ---------- NAV ---------- */
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      text-align: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 2rem;
-    }
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.6rem 2rem;
+    border-bottom: 1px solid var(--line);
+  }
 
-    @media (max-width: 600px) {
-      nav { padding: 1rem; }
-      .nav-links { gap: 1rem; }
-    }
-  </style>
+  .site-nav .wordmark {
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .site-nav a:hover,
+  .site-nav a[aria-current="page"] {
+    color: var(--ink);
+    border-bottom-color: var(--signal);
+  }
+
+  /* ---------- PAGE HEAD ---------- */
+
+  .page-head {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2.4rem;
+  }
+
+  .dateline {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+
+  .dateline .lead {
+    color: var(--ink-muted);
+  }
+
+  .page-head h1 {
+    font-size: clamp(2rem, 4.5vw, 2.6rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.1rem;
+  }
+
+  .page-desc {
+    max-width: 56ch;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--ink-muted);
+  }
+
+  /* ---------- FEED ---------- */
+
+  .feed {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0.6rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .post {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--paper-raised);
+  }
+
+  .carousel-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #10140f;
+  }
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s ease;
+  }
+
+  .carousel-track img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-track .video-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    background: #10140f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-track .video-slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(16, 20, 15, 0.55);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    z-index: 2;
+  }
+
+  .carousel-btn:hover { background: rgba(16, 20, 15, 0.85); }
+  .carousel-btn.left { left: 10px; }
+  .carousel-btn.right { right: 10px; }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+  }
+
+  .dot.active { opacity: 1; }
+
+  .post-body {
+    padding: 1.1rem 1.2rem 1.3rem;
+  }
+
+  .post-category {
+    font-size: 0.78rem;
+    color: var(--signal);
+    margin-bottom: 0.35rem;
+  }
+
+  .post-title {
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+
+  .post-desc {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    max-width: 960px;
+    margin: 1.8rem auto 0;
+    padding: 1.8rem 2rem 2.8rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  @media (max-width: 620px) {
+    .site-nav ul { gap: 1.1rem; }
+    .site-nav a { font-size: 0.8rem; }
+  }
+</style>
 </head>
 <body>
 
-  <nav>
-    <div class="nav-brand">
-      <a href="index.html" class="nav-name">Riko Miyagi</a>
-      <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">☀</button>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects &amp; Certifications</a></li>
-      <li><a href="life.html" class="active">Outside of Work</a></li>
-      <li><a href="experience.html">Experience</a></li>
-    </ul>
-  </nav>
+<nav class="site-nav">
+  <a href="index-prototype.html" class="wordmark">Riko Miyagi</a>
+  <ul>
+    <li><a href="index-prototype.html">Home</a></li>
+    <li><a href="experience-prototype.html">Experience</a></li>
+    <li><a href="projects-prototype.html">Projects</a></li>
+    <li><a href="life-prototype.html" aria-current="page">Outside of Work</a></li>
+  </ul>
+</nav>
 
-  <div class="page-header">
-    <p class="page-eyebrow">Personal</p>
-    <h1>Outside of Work</h1>
-    <p>Outside of school, I have practiced karate since the age of three and now give back to the sport as a teaching assistant and substitute instructor at my local dojo. Some other hobbies of mine are hiking and playing music. Music and playing instruments has been a big part of my life and I have been playing guitar since I was six and have a deep love for rock. On a personal note, I am Japanese-Canadian, speak Japanese at home, and plan to return to Japan after graduation.</p>
+<section class="page-head">
+  <h1>Outside of Work</h1>
+  <p class="page-desc">Outside of school, I have practiced karate since the age of three and now give back to the sport as a teaching assistant and substitute instructor at my local dojo. Some other hobbies of mine are hiking and playing music, I have been playing guitar since I was six and have a deep love for rock. On a personal note, I am Japanese-Canadian, speak Japanese at home, and plan to return to Japan after graduation.</p>
+</section>
+
+<div class="feed">
+
+  <!-- Hiking post -->
+  <div class="post">
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="hike-track">
+        <img src="hike1.jpg" alt="Dolomites 1" />
+        <img src="hike2.jpg" alt="Dolomites 2" />
+        <img src="hike3.jpg" alt="Dolomites 3" />
+        <img src="hike4.jpg" alt="Dolomites 4" />
+        <img src="hike5.jpg" alt="Dolomites 5" />
+      </div>
+      <button class="carousel-btn left" onclick="slide('hike', -1)" aria-label="Previous photo">&#8249;</button>
+      <button class="carousel-btn right" onclick="slide('hike', 1)" aria-label="Next photo">&#8250;</button>
+      <div class="carousel-dots" id="hike-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <div class="post-body">
+      <p class="post-category">Hiking</p>
+      <p class="post-title">Hiking</p>
+      <p class="post-desc">I love getting out into the mountains whenever I can. There is something about being above the treeline with nothing but open sky and trail ahead that I find hard to replicate anywhere else.</p>
+    </div>
   </div>
 
-  <div class="feed">
-
-    <!-- Hiking post -->
-    <div class="post">
-      <div class="carousel-wrap">
-        <div class="carousel-track" id="hike-track">
-          <img src="hike1.jpg" alt="Dolomites 1" />
-          <img src="hike2.jpg" alt="Dolomites 2" />
-          <img src="hike3.jpg" alt="Dolomites 3" />
-          <img src="hike4.jpg" alt="Dolomites 4" />
-          <img src="hike5.jpg" alt="Dolomites 5" />
-        </div>
-        <button class="carousel-btn left" onclick="slide('hike', -1)">&#8249;</button>
-        <button class="carousel-btn right" onclick="slide('hike', 1)">&#8250;</button>
-        <div class="carousel-dots" id="hike-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
+  <!-- Karate post -->
+  <div class="post">
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="karate-track">
+        <img src="karate.jpg" alt="Karate black belt" />
+        <img src="Karate2.jpg" alt="Karate at the dojo" />
       </div>
-      <div class="post-body">
-        <p class="post-category">Hiking</p>
-        <p class="post-title">Hiking</p>
-        <p class="post-desc">I love getting out into the mountains whenever I can. There is something about being above the treeline with nothing but open sky and trail ahead that I find hard to replicate anywhere else.</p>
+      <button class="carousel-btn left" onclick="slide('karate', -1)" aria-label="Previous photo">&#8249;</button>
+      <button class="carousel-btn right" onclick="slide('karate', 1)" aria-label="Next photo">&#8250;</button>
+      <div class="carousel-dots" id="karate-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
       </div>
     </div>
-
-    <!-- Karate post -->
-    <div class="post">
-      <div class="carousel-wrap">
-        <div class="carousel-track" id="karate-track">
-          <img src="karate.jpg" alt="Karate black belt" />
-          <img src="Karate2.jpg" alt="Karate at the dojo" />
-        </div>
-        <button class="carousel-btn left" onclick="slide('karate', -1)">&#8249;</button>
-        <button class="carousel-btn right" onclick="slide('karate', 1)">&#8250;</button>
-        <div class="carousel-dots" id="karate-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-      <div class="post-body">
-        <p class="post-category">Karate</p>
-        <p class="post-title">Shodan — 1st Dan Black Belt</p>
-        <p class="post-desc">Training in Goju-ryu karate since childhood. Earned my Shodan black belt at KW Meibukan in Waterloo. I now coach children's classes and substitute-instruct adult sessions of 30+ students at the dojo.</p>
-      </div>
+    <div class="post-body">
+      <p class="post-category">Karate</p>
+      <p class="post-title">Shodan (1st Dan Black Belt)</p>
+      <p class="post-desc">Training in Goju-ryu karate since childhood. Earned my Shodan black belt at KW Meibukan in Waterloo. I now coach children's classes and substitute-instruct adult sessions of 30+ students at the dojo.</p>
     </div>
-
-    <!-- Guitar post -->
-    <div class="post">
-      <div class="carousel-wrap">
-        <div class="carousel-track" id="guitar-track">
-          <div class="video-slide">
-            <video id="guitar-video" preload="metadata" controls playsinline>
-              <source src="Guitar-vid.MP4" type="video/mp4" />
-            </video>
-          </div>
-          <img src="Guitar2.jpg" alt="Playing guitar young" />
-        </div>
-        <button class="carousel-btn left" onclick="slide('guitar', -1)">&#8249;</button>
-        <button class="carousel-btn right" onclick="slide('guitar', 1)">&#8250;</button>
-        <div class="carousel-dots" id="guitar-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-      <div class="post-body">
-        <p class="post-category">Music</p>
-        <p class="post-title">Guitar</p>
-        <p class="post-desc">I have been playing guitar since I was six. Music has always been a big part of my life and the guitar is how I unwind.</p>
-      </div>
-    </div>
-
   </div>
 
-  <footer>
-    riko-miyagi.github.io &nbsp;·&nbsp; built with HTML
-  </footer>
+  <!-- Guitar post -->
+  <div class="post">
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="guitar-track">
+        <div class="video-slide">
+          <video id="guitar-video" preload="metadata" controls playsinline>
+            <source src="Guitar-vid.MP4" type="video/mp4" />
+          </video>
+        </div>
+        <img src="Guitar2.jpg" alt="Playing guitar young" />
+      </div>
+      <button class="carousel-btn left" onclick="slide('guitar', -1)" aria-label="Previous slide">&#8249;</button>
+      <button class="carousel-btn right" onclick="slide('guitar', 1)" aria-label="Next slide">&#8250;</button>
+      <div class="carousel-dots" id="guitar-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <div class="post-body">
+      <p class="post-category">Music</p>
+      <p class="post-title">Guitar</p>
+      <p class="post-desc">I have been playing guitar since I was six. Music has always been a big part of my life and the guitar is how I unwind.</p>
+    </div>
+  </div>
 
-  <script>
-    const state = { hike: 0, karate: 0, guitar: 0 };
-    const totals = { hike: 5, karate: 2, guitar: 2 };
+</div>
 
-    function slide(id, dir) {
-      // Pause video if leaving video slide
-      if (id === 'guitar') {
-        const vid = document.getElementById('guitar-video');
-        if (vid) vid.pause();
-      }
-      state[id] = (state[id] + dir + totals[id]) % totals[id];
-      document.getElementById(`${id}-track`).style.transform = `translateX(-${state[id] * 100}%)`;
-      document.querySelectorAll(`#${id}-dots .dot`).forEach((d, i) => {
-        d.classList.toggle('active', i === state[id]);
-      });
+<footer>
+  riko-miyagi.github.io
+</footer>
+
+<script>
+  const state = { hike: 0, karate: 0, guitar: 0 };
+  const totals = { hike: 5, karate: 2, guitar: 2 };
+
+  function slide(id, dir) {
+    if (id === 'guitar') {
+      const vid = document.getElementById('guitar-video');
+      if (vid) vid.pause();
     }
-
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
-      const isLight = document.body.classList.contains('light-mode');
-      document.getElementById('theme-toggle').textContent = isLight ? '☾' : '☀';
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    }
-
-    (function() {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'light') {
-        document.body.classList.add('light-mode');
-        document.getElementById('theme-toggle').textContent = '☾';
-      }
-    })();
-  </script>
+    state[id] = (state[id] + dir + totals[id]) % totals[id];
+    document.getElementById(`${id}-track`).style.transform = `translateX(-${state[id] * 100}%)`;
+    document.querySelectorAll(`#${id}-dots .dot`).forEach((d, i) => {
+      d.classList.toggle('active', i === state[id]);
+    });
+  }
+</script>
 
 </body>
 </html>
