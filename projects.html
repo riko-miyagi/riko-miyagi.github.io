@@ -6,6 +6,12 @@
 <title>Riko Miyagi: Projects</title>
 <meta name="description" content="GIS analyses, energy modeling projects, and data visualizations by Riko Miyagi, plus data analytics and Python certifications." />
 
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -211,6 +217,18 @@
     font-size: 0.84rem;
     color: var(--ink-muted);
     padding-top: 0.2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--flag);
+    flex-shrink: 0;
+    display: inline-block;
   }
 
   .cert-title {
@@ -261,7 +279,7 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="experience.html">Experience</a></li>
-    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="projects.html" aria-current="page">Projects &amp; Certifications</a></li>
     <li><a href="life.html">Outside of Work</a></li>
   </ul>
 </nav>
@@ -369,12 +387,21 @@
 
 <section class="certs">
 
+  <div class="cert-row">
+    <div class="cert-date mono"><span class="status-dot" aria-hidden="true"></span>in progress</div>
+    <div>
+      <p class="cert-title">IBM Data Science Professional Certificate</p>
+      <p class="cert-issuer">Coursera, IBM</p>
+      <p class="cert-desc">12-course professional certificate covering the full data science toolkit: Python, SQL, and data visualization, through statistics, machine learning, and generative AI. Hands-on projects include querying census and crime datasets with SQL, building regression models to predict housing prices, a Python dashboard for flight reliability, and a machine learning classifier for loan approval, using Pandas, NumPy, Scikit-learn, and Jupyter notebooks.</p>
+    </div>
+  </div>
+
   <a href="https://www.coursera.org/account/accomplishments/verify/EIRDGEPFTA5B" target="_blank" class="cert-row">
     <div class="cert-date mono">Aug 2025</div>
     <div>
       <p class="cert-title">Google Data Analytics Professional Certificate</p>
       <p class="cert-issuer">Coursera</p>
-      <p class="cert-desc">Completed 8 courses in data cleaning, analysis, and visualization, learning Spreadsheets, SQL, R, and Tableau.</p>
+      <p class="cert-desc">Eight-course program covering the full data analysis workflow: asking the right questions, then preparing, processing, analyzing, and sharing data. Covered spreadsheet formulas, SQL queries (filtering, joins, aggregate functions), data cleaning and integrity checks, R programming with the tidyverse and ggplot2, and Tableau dashboard design. Capstone case study is the Cyclistic bike-share project above.</p>
     </div>
   </a>
 
@@ -383,7 +410,7 @@
     <div>
       <p class="cert-title">University of Michigan, Python for Everybody Specialization</p>
       <p class="cert-issuer">Coursera</p>
-      <p class="cert-desc">Core Python programming: variables, data structures, dictionaries, tuples, file handling, and program logic.</p>
+      <p class="cert-desc">Five-course specialization building Python from the ground up: variables, loops, functions, and file handling, then data structures (lists, dictionaries, tuples) and basic object-oriented programming. Later courses covered pulling data from the web and APIs, parsing JSON and XML, and storing and querying data with SQLite. Capstone combined data retrieval, database storage, and visualization.</p>
     </div>
   </a>
 
@@ -392,7 +419,7 @@
     <div>
       <p class="cert-title">Build with AI: Create Custom Chatbots with n8n</p>
       <p class="cert-issuer">LinkedIn</p>
-      <p class="cert-desc">Skills: Artificial Intelligence, Chatbot Testing, workflow automation with n8n.</p>
+      <p class="cert-desc">Built automated workflows in n8n's visual, node-based builder, wiring together triggers, actions, and AI model nodes to design and test conversational chatbot logic end to end.</p>
     </div>
   </div>
 
