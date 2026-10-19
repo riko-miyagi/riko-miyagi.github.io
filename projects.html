@@ -177,21 +177,29 @@
     color: var(--ink-muted);
   }
 
-  /* ---------- SECTION LABEL ---------- */
+  /* ---------- CERTIFICATIONS BAND ---------- */
+
+  .certs-band {
+    background: var(--paper-raised);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: 1.5rem;
+  }
 
   .section-label {
     max-width: 960px;
     margin: 0 auto;
-    padding: 2.8rem 2rem 1rem;
-    font-size: 0.86rem;
-    color: var(--ink-muted);
-    border-top: 1px solid var(--line);
+    padding: 3.4rem 2rem 1.4rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
   }
 
   .certs {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 2rem 1rem;
+    padding: 0 2rem 3rem;
   }
 
   .cert-row {
@@ -210,7 +218,7 @@
   }
 
   a.cert-row:hover {
-    background: var(--paper-raised);
+    background: var(--paper);
   }
 
   .cert-date {
@@ -383,18 +391,19 @@
 
 </section>
 
-<p class="section-label">certifications</p>
+<div class="certs-band">
+<p class="section-label">Certifications</p>
 
 <section class="certs">
 
-  <div class="cert-row">
-    <div class="cert-date mono"><span class="status-dot" aria-hidden="true"></span>in progress</div>
+  <a href="https://www.credly.com/badges/a3c04f57-0add-4d9c-9899-dd240304f1b5/public_url" target="_blank" class="cert-row">
+    <div class="cert-date mono">Oct 2026</div>
     <div>
       <p class="cert-title">IBM Data Science Professional Certificate</p>
       <p class="cert-issuer">Coursera, IBM</p>
-      <p class="cert-desc">12-course professional certificate covering the full data science toolkit: Python, SQL, and data visualization, through statistics, machine learning, and generative AI. Hands-on projects include querying census and crime datasets with SQL, building regression models to predict housing prices, a Python dashboard for flight reliability, and a machine learning classifier for loan approval, using Pandas, NumPy, Scikit-learn, and Jupyter notebooks.</p>
+      <p class="cert-desc">12-course certificate covering the full data science toolkit: Python, SQL, and data visualization, through statistics, machine learning, and generative AI. Covered Pandas, NumPy, Scikit-learn, and Jupyter notebooks.</p>
     </div>
-  </div>
+  </a>
 
   <a href="https://www.coursera.org/account/accomplishments/verify/EIRDGEPFTA5B" target="_blank" class="cert-row">
     <div class="cert-date mono">Aug 2025</div>
@@ -424,6 +433,7 @@
   </div>
 
 </section>
+</div>
 
 <footer>
   riko-miyagi.github.io
